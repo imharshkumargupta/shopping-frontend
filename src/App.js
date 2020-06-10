@@ -3,6 +3,7 @@ import Login from './components/Login';
 import Products from './components/ProductList';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import Signup from './components/Signup';
 import {  BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { isAuthenticated } from './repository';
 
@@ -34,6 +35,8 @@ class App extends Component {
                       ( <a className="nav-item nav-link" href="/" onClick={this.logOut}>Log out</a>) : 
                       ( <Link className="nav-item nav-link float-right" to="/login">Log in</Link> )
                    }
+                   <Link className="nav-item nav-link" to="/signup">Signup</Link>
+
                 </div>
               </div>
             </div>
@@ -44,6 +47,7 @@ class App extends Component {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/checkout" component={Checkout} />
             { (!auth) ? <Route exact path="/login" component={Login} /> : '' }
+            <Route exact path = "/signup" component={Signup} /> 
           </div>
         </div>
       </Router>
